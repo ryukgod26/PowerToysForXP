@@ -48,25 +48,44 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.Generalbtn = new System.Windows.Forms.Button();
             this.DashBoardPanel = new System.Windows.Forms.Panel();
             this.GeneralPanel = new System.Windows.Forms.Panel();
             this.SettingsPanel = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.NameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.errorTerms = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorFname = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorAge = new System.Windows.Forms.ErrorProvider(this.components);
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.DashBoardPanel.SuspendLayout();
             this.GeneralPanel.SuspendLayout();
+            this.SettingsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTerms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorFname)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAge)).BeginInit();
             this.SuspendLayout();
             // 
             // submitButton
             // 
             this.submitButton.AccessibleName = "";
+            this.submitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.submitButton.Location = new System.Drawing.Point(382, 354);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(129, 39);
@@ -135,9 +154,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 213);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 16);
+            this.label4.Size = new System.Drawing.Size(32, 16);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Progress";
+            this.label4.Text = "Item";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox4
@@ -166,7 +185,6 @@
             this.progressBar1.Size = new System.Drawing.Size(277, 23);
             this.progressBar1.TabIndex = 10;
             this.progressBar1.UseWaitCursor = true;
-            this.progressBar1.Value = 45;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // backgroundWorker1
@@ -196,7 +214,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -222,6 +240,10 @@
             // 
             // splitContainer.Panel1
             // 
+            this.splitContainer.Panel1.Controls.Add(this.radioButton2);
+            this.splitContainer.Panel1.Controls.Add(this.radioButton1);
+            this.splitContainer.Panel1.Controls.Add(this.pictureBox1);
+            this.splitContainer.Panel1.Controls.Add(this.comboBox1);
             this.splitContainer.Panel1.Controls.Add(this.button1);
             this.splitContainer.Panel1.Controls.Add(this.button4);
             this.splitContainer.Panel1.Controls.Add(this.Generalbtn);
@@ -236,6 +258,49 @@
             this.splitContainer.Size = new System.Drawing.Size(800, 450);
             this.splitContainer.SplitterDistance = 139;
             this.splitContainer.TabIndex = 14;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(12, 211);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(103, 20);
+            this.radioButton2.TabIndex = 7;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(12, 253);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(103, 20);
+            this.radioButton1.TabIndex = 6;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(12, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Item1",
+            "Item2"});
+            this.comboBox1.Location = new System.Drawing.Point(0, 354);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -256,6 +321,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "Dashboard";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Generalbtn
             // 
@@ -271,13 +337,11 @@
             // DashBoardPanel
             // 
             this.DashBoardPanel.Controls.Add(this.GeneralPanel);
-            this.DashBoardPanel.Controls.Add(this.panel2);
             this.DashBoardPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DashBoardPanel.Location = new System.Drawing.Point(0, 0);
             this.DashBoardPanel.Name = "DashBoardPanel";
             this.DashBoardPanel.Size = new System.Drawing.Size(657, 450);
             this.DashBoardPanel.TabIndex = 9;
-            this.DashBoardPanel.Visible = false;
             // 
             // GeneralPanel
             // 
@@ -287,21 +351,50 @@
             this.GeneralPanel.Name = "GeneralPanel";
             this.GeneralPanel.Size = new System.Drawing.Size(657, 450);
             this.GeneralPanel.TabIndex = 1;
+            this.GeneralPanel.Visible = false;
             // 
             // SettingsPanel
             // 
+            this.SettingsPanel.Controls.Add(this.dataGridView1);
+            this.SettingsPanel.Controls.Add(this.panel2);
             this.SettingsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SettingsPanel.Location = new System.Drawing.Point(0, 0);
             this.SettingsPanel.Name = "SettingsPanel";
             this.SettingsPanel.Padding = new System.Windows.Forms.Padding(1);
             this.SettingsPanel.Size = new System.Drawing.Size(657, 450);
             this.SettingsPanel.TabIndex = 0;
-            this.SettingsPanel.Visible = false;
             this.SettingsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SettingsPanel_Paint);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NameCol,
+            this.Age});
+            this.dataGridView1.Location = new System.Drawing.Point(389, 179);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(212, 150);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // NameCol
+            // 
+            this.NameCol.HeaderText = "Name";
+            this.NameCol.MinimumWidth = 6;
+            this.NameCol.Name = "NameCol";
+            this.NameCol.Width = 125;
+            // 
+            // Age
+            // 
+            this.Age.HeaderText = "Age";
+            this.Age.MinimumWidth = 6;
+            this.Age.Name = "Age";
+            this.Age.Width = 125;
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(128, 44);
+            this.panel2.Location = new System.Drawing.Point(143, 22);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(8, 8);
             this.panel2.TabIndex = 0;
@@ -311,6 +404,26 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // errorTerms
+            // 
+            this.errorTerms.ContainerControl = this;
+            // 
+            // errorFname
+            // 
+            this.errorFname.ContainerControl = this;
+            // 
+            // errorAge
+            // 
+            this.errorAge.ContainerControl = this;
+            // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Form1
             // 
@@ -334,11 +447,18 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer.Panel1.ResumeLayout(false);
+            this.splitContainer.Panel1.PerformLayout();
             this.splitContainer.Panel2.ResumeLayout(false);
             this.splitContainer.Panel2.PerformLayout();
             this.splitContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.DashBoardPanel.ResumeLayout(false);
             this.GeneralPanel.ResumeLayout(false);
+            this.SettingsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTerms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorFname)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,6 +492,18 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel GeneralPanel;
         private System.Windows.Forms.Panel SettingsPanel;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.ErrorProvider errorTerms;
+        private System.Windows.Forms.ErrorProvider errorFname;
+        private System.Windows.Forms.ErrorProvider errorAge;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Age;
     }
 }
 

@@ -15,32 +15,45 @@ namespace PowerToysForXP
         {
             
             InitializeComponent();
-            textBox4.Text = progressBar1.Value.ToString();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             Console.WriteLine("Button clicked!");
-            if (textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && int.Parse(textBox3.Text) > 0)
+            if ( textBox1.Text.ToString().Length > 0 )
             {
-                MessageBox.Show($"Hello {textBox1.Text} {textBox2.Text}");
-                MessageBox.Show($"You are {textBox3.Text} Years Old.");
-
-                if (checkBox1.Checked)
+                if(int.TryParse(textBox3.Text,out int age) && age > 0)
                 {
-                    MessageBox.Show("Thanks For Accepting Termas and Conditions.");
-                    checkBox1.Dispose();
-                    progressBar1.Value = 100;
-                    
+                    MessageBox.Show($"Hello {textBox1.Text}");
+                    MessageBox.Show($"You are {textBox3.Text} Years Old.");
+
+                    if (checkBox1.Checked)
+                    {
+                        comboBox1.Items.Add(textBox4.Text);
+                        MessageBox.Show("Thanks For Accepting Termas and Conditions.");
+                        checkBox1.Dispose();
+                        timer.Interval = 100;
+                        timer.Start();
+                        // Image img =  openFileDialog1.OpenFile("t.jpg");
+                        dataGridView1.Rows.Add(textBox1.Text,textBox3.Text);
+                    }
+                    else
+                    {
+                        errorTerms.SetError(checkBox1, "Please Accept Terms ans Conditions.");
+                    }
+              
                 }
                 else
                 {
-                    MessageBox.Show("Please Accept Terms and Conditions First.");
+                    errorAge.SetError(textBox3, "Please Enter a valid Age.");
                 }
             }
             else
             {
-                MessageBox.Show("Please Enter your name.");
+                errorTerms.SetError(textBox1, "Please Enter your First Name");
+                
             }
 
         }
@@ -122,8 +135,11 @@ namespace PowerToysForXP
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        this.Close();
+        DialogResult result = MessageBox.Show("DoYou want to close this Application?", "Closing the app", MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+            {
+                Application.Exit();
+            }
 
         }
 
@@ -141,7 +157,38 @@ namespace PowerToysForXP
 
         private void SettingsPanel_Paint(object sender, PaintEventArgs e)
         {
+            SettingsPanel.Visible = true;
+            DashBoardPanel.Visible = false;
+            GeneralPanel.Visible = false;
+        }
 
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if(progressBar1.Value<100)
+            { 
+                progressBar1.Value += 1; 
+            }
+            else
+            {
+                timer.Stop();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SettingsPanel.Visible = false;
+            DashBoardPanel.Visible = true;
+            GeneralPanel.Visible = false;
         }
     }
 }
