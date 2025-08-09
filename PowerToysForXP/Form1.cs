@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace PowerToysForXP
@@ -17,7 +18,7 @@ namespace PowerToysForXP
             InitializeComponent();
             
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             
@@ -37,7 +38,7 @@ namespace PowerToysForXP
                         timer.Interval = 100;
                         timer.Start();
                         // Image img =  openFileDialog1.OpenFile("t.jpg");
-                        dataGridView1.Rows.Add(textBox1.Text,textBox3.Text);
+                        //dataGridView1.Rows.Add(textBox1.Text,textBox3.Text);
                     }
                     else
                     {
@@ -90,8 +91,11 @@ namespace PowerToysForXP
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            System.Drawing.Rectangle workingRectangle = Screen.PrimaryScreen.WorkingArea;
 
+            this.Size = new System.Drawing.Size(Convert.ToInt32(0.5 * workingRectangle.Width),Convert.ToInt32(0.5 * workingRectangle.Height));
 
+            this.Location = new System.Drawing.Point(10, 10);
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -150,16 +154,16 @@ namespace PowerToysForXP
 
         private void Generalbtn_Click(object sender, EventArgs e)
         {
-            SettingsPanel.Visible = false;
-            DashBoardPanel.Visible = false;
-            GeneralPanel.Visible = true;
+            //SettingsPanel.Visible = false;
+            //DashBoardPanel.Visible = false;
+            //GeneralPanel.Visible = true;
         }
 
         private void SettingsPanel_Paint(object sender, PaintEventArgs e)
         {
-            SettingsPanel.Visible = true;
-            DashBoardPanel.Visible = false;
-            GeneralPanel.Visible = false;
+            //SettingsPanel.Visible = true;
+            //DashBoardPanel.Visible = false;
+            //GeneralPanel.Visible = false;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -186,9 +190,9 @@ namespace PowerToysForXP
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SettingsPanel.Visible = false;
-            DashBoardPanel.Visible = true;
-            GeneralPanel.Visible = false;
+            //SettingsPanel.Visible = false;
+            //DashBoardPanel.Visible = true;
+            //GeneralPanel.Visible = false;
         }
     }
 }

@@ -29,75 +29,59 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.advPastelbl = new System.Windows.Forms.Label();
-            this.advPaste = new System.Windows.Forms.CheckBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer1.SuspendLayout();
+            this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
+            this.homeSPanel = new System.Windows.Forms.Panel();
+            this.homebtn = new System.Windows.Forms.Button();
+            this.sidebar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // vScrollBar1
+            // sidebar
             // 
-            this.vScrollBar1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.vScrollBar1.Location = new System.Drawing.Point(779, 0);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(21, 450);
-            this.vScrollBar1.TabIndex = 2;
+            this.sidebar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.sidebar.Controls.Add(this.homebtn);
+            this.sidebar.Controls.Add(this.homeSPanel);
+            this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidebar.Location = new System.Drawing.Point(0, 0);
+            this.sidebar.Name = "sidebar";
+            this.sidebar.Size = new System.Drawing.Size(200, 450);
+            this.sidebar.TabIndex = 0;
             // 
-            // advPastelbl
+            // homeSPanel
             // 
-            this.advPastelbl.AccessibleName = "Advance Paste";
-            this.advPastelbl.AutoSize = true;
-            this.advPastelbl.Location = new System.Drawing.Point(187, 103);
-            this.advPastelbl.Name = "advPastelbl";
-            this.advPastelbl.Size = new System.Drawing.Size(99, 16);
-            this.advPastelbl.TabIndex = 5;
-            this.advPastelbl.Text = "Advance Paste";
+            this.homeSPanel.Location = new System.Drawing.Point(3, 45);
+            this.homeSPanel.Name = "homeSPanel";
+            this.homeSPanel.Size = new System.Drawing.Size(150, 43);
+            this.homeSPanel.TabIndex = 1;
+            this.homeSPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.homeSPanel_Paint);
             // 
-            // advPaste
+            // homebtn
             // 
-            this.advPaste.AccessibleName = "Advance Paste";
-            this.advPaste.AutoSize = true;
-            this.advPaste.Location = new System.Drawing.Point(395, 98);
-            this.advPaste.Name = "advPaste";
-            this.advPaste.Size = new System.Drawing.Size(45, 20);
-            this.advPaste.TabIndex = 1;
-            this.advPaste.Text = "Off";
-            this.advPaste.UseVisualStyleBackColor = false;
-            this.advPaste.UseWaitCursor = true;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(779, 450);
-            this.splitContainer1.SplitterDistance = 259;
-            this.splitContainer1.TabIndex = 6;
+            this.homebtn.Location = new System.Drawing.Point(3, 3);
+            this.homebtn.Name = "homebtn";
+            this.homebtn.Size = new System.Drawing.Size(150, 36);
+            this.homebtn.TabIndex = 2;
+            this.homebtn.Text = "Home";
+            this.homebtn.UseVisualStyleBackColor = true;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.advPaste);
-            this.Controls.Add(this.advPastelbl);
-            this.Controls.Add(this.vScrollBar1);
+            this.Controls.Add(this.sidebar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
             this.Text = "Power Toys For XP";
             this.Load += new System.EventHandler(this.Home_Load);
-            this.splitContainer1.ResumeLayout(false);
+            this.sidebar.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.VScrollBar vScrollBar1;
-        private System.Windows.Forms.Label advPastelbl;
-        private System.Windows.Forms.CheckBox advPaste;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+
+        private System.Windows.Forms.FlowLayoutPanel sidebar;
+        private System.Windows.Forms.Panel homeSPanel;
+        private System.Windows.Forms.Button homebtn;
     }
 }

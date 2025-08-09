@@ -29,5 +29,9 @@ namespace PowerToysForXP
 
         }
 
+        private void homeSPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

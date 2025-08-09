@@ -40,7 +40,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,28 +54,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.Generalbtn = new System.Windows.Forms.Button();
-            this.DashBoardPanel = new System.Windows.Forms.Panel();
-            this.GeneralPanel = new System.Windows.Forms.Panel();
-            this.SettingsPanel = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.NameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.errorTerms = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorFname = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorAge = new System.Windows.Forms.ErrorProvider(this.components);
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.menuStrip1.SuspendLayout();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.DashBoardPanel.SuspendLayout();
-            this.GeneralPanel.SuspendLayout();
-            this.SettingsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorTerms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorFname)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorAge)).BeginInit();
@@ -85,6 +74,9 @@
             // submitButton
             // 
             this.submitButton.AccessibleName = "";
+            this.submitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.submitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.submitButton.Location = new System.Drawing.Point(382, 354);
             this.submitButton.Name = "submitButton";
@@ -178,15 +170,6 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(382, 300);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(277, 23);
-            this.progressBar1.TabIndex = 10;
-            this.progressBar1.UseWaitCursor = true;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
-            // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
@@ -199,7 +182,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -208,13 +191,13 @@
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(46, 26);
             this.toolStripMenuItem1.Text = "&File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -223,7 +206,7 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
             // aboutToolStripMenuItem
@@ -250,7 +233,6 @@
             // 
             // splitContainer.Panel2
             // 
-            this.splitContainer.Panel2.Controls.Add(this.DashBoardPanel);
             this.splitContainer.Panel2.Controls.Add(this.label1);
             this.splitContainer.Panel2.Controls.Add(this.label2);
             this.splitContainer.Panel2.Controls.Add(this.label3);
@@ -334,71 +316,6 @@
             this.Generalbtn.UseVisualStyleBackColor = true;
             this.Generalbtn.Click += new System.EventHandler(this.Generalbtn_Click);
             // 
-            // DashBoardPanel
-            // 
-            this.DashBoardPanel.Controls.Add(this.GeneralPanel);
-            this.DashBoardPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DashBoardPanel.Location = new System.Drawing.Point(0, 0);
-            this.DashBoardPanel.Name = "DashBoardPanel";
-            this.DashBoardPanel.Size = new System.Drawing.Size(657, 450);
-            this.DashBoardPanel.TabIndex = 9;
-            // 
-            // GeneralPanel
-            // 
-            this.GeneralPanel.Controls.Add(this.SettingsPanel);
-            this.GeneralPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GeneralPanel.Location = new System.Drawing.Point(0, 0);
-            this.GeneralPanel.Name = "GeneralPanel";
-            this.GeneralPanel.Size = new System.Drawing.Size(657, 450);
-            this.GeneralPanel.TabIndex = 1;
-            this.GeneralPanel.Visible = false;
-            // 
-            // SettingsPanel
-            // 
-            this.SettingsPanel.Controls.Add(this.dataGridView1);
-            this.SettingsPanel.Controls.Add(this.panel2);
-            this.SettingsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SettingsPanel.Location = new System.Drawing.Point(0, 0);
-            this.SettingsPanel.Name = "SettingsPanel";
-            this.SettingsPanel.Padding = new System.Windows.Forms.Padding(1);
-            this.SettingsPanel.Size = new System.Drawing.Size(657, 450);
-            this.SettingsPanel.TabIndex = 0;
-            this.SettingsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SettingsPanel_Paint);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NameCol,
-            this.Age});
-            this.dataGridView1.Location = new System.Drawing.Point(389, 179);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(212, 150);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // NameCol
-            // 
-            this.NameCol.HeaderText = "Name";
-            this.NameCol.MinimumWidth = 6;
-            this.NameCol.Name = "NameCol";
-            this.NameCol.Width = 125;
-            // 
-            // Age
-            // 
-            this.Age.HeaderText = "Age";
-            this.Age.MinimumWidth = 6;
-            this.Age.Name = "Age";
-            this.Age.Width = 125;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(143, 22);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(8, 8);
-            this.panel2.TabIndex = 0;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -424,6 +341,15 @@
             // timer
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(382, 300);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(277, 23);
+            this.progressBar1.TabIndex = 10;
+            this.progressBar1.UseWaitCursor = true;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // Form1
             // 
@@ -452,10 +378,6 @@
             this.splitContainer.Panel2.PerformLayout();
             this.splitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.DashBoardPanel.ResumeLayout(false);
-            this.GeneralPanel.ResumeLayout(false);
-            this.SettingsPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorTerms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorFname)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorAge)).EndInit();
@@ -476,7 +398,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -488,10 +409,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Panel DashBoardPanel;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel GeneralPanel;
-        private System.Windows.Forms.Panel SettingsPanel;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
@@ -501,9 +418,7 @@
         private System.Windows.Forms.ErrorProvider errorFname;
         private System.Windows.Forms.ErrorProvider errorAge;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Age;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
