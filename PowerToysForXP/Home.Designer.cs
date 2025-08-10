@@ -28,60 +28,370 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
-            this.homeSPanel = new System.Windows.Forms.Panel();
+            this.sidebarContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.menuPanel = new System.Windows.Forms.Panel();
+            this.menulbl = new System.Windows.Forms.Label();
+            this.menuButton = new System.Windows.Forms.PictureBox();
+            this.homePanel = new System.Windows.Forms.Panel();
             this.homebtn = new System.Windows.Forms.Button();
-            this.sidebar.SuspendLayout();
+            this.aboutPanel = new System.Windows.Forms.Panel();
+            this.aboutbtn = new System.Windows.Forms.Button();
+            this.helpPanel = new System.Windows.Forms.Panel();
+            this.helpbtn = new System.Windows.Forms.Button();
+            this.settingPanel = new System.Windows.Forms.Panel();
+            this.settingbtn = new System.Windows.Forms.Button();
+            this.browserPanel = new System.Windows.Forms.Panel();
+            this.browserbtn = new System.Windows.Forms.Button();
+            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
+            this.browserPanelView = new System.Windows.Forms.Panel();
+            this.url = new System.Windows.Forms.TextBox();
+            this.forwardBtn = new System.Windows.Forms.Button();
+            this.backBtn = new System.Windows.Forms.Button();
+            this.navigatebtn = new System.Windows.Forms.Button();
+            this.refreshBtn = new System.Windows.Forms.Button();
+            this.browserWindow = new System.Windows.Forms.WebBrowser();
+            this.homePanelView = new System.Windows.Forms.Panel();
+            this.homelbl = new System.Windows.Forms.Label();
+            this.colorpickerCheckBox = new System.Windows.Forms.CheckBox();
+            this.sidebarContainer.SuspendLayout();
+            this.menuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
+            this.homePanel.SuspendLayout();
+            this.aboutPanel.SuspendLayout();
+            this.helpPanel.SuspendLayout();
+            this.settingPanel.SuspendLayout();
+            this.browserPanel.SuspendLayout();
+            this.browserPanelView.SuspendLayout();
+            this.homePanelView.SuspendLayout();
             this.SuspendLayout();
             // 
-            // sidebar
+            // sidebarContainer
             // 
-            this.sidebar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.sidebar.Controls.Add(this.homebtn);
-            this.sidebar.Controls.Add(this.homeSPanel);
-            this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sidebar.Location = new System.Drawing.Point(0, 0);
-            this.sidebar.Name = "sidebar";
-            this.sidebar.Size = new System.Drawing.Size(200, 450);
-            this.sidebar.TabIndex = 0;
+            this.sidebarContainer.BackColor = System.Drawing.Color.DarkGray;
+            this.sidebarContainer.Controls.Add(this.menuPanel);
+            this.sidebarContainer.Controls.Add(this.homePanel);
+            this.sidebarContainer.Controls.Add(this.aboutPanel);
+            this.sidebarContainer.Controls.Add(this.helpPanel);
+            this.sidebarContainer.Controls.Add(this.settingPanel);
+            this.sidebarContainer.Controls.Add(this.browserPanel);
+            this.sidebarContainer.Location = new System.Drawing.Point(0, 0);
+            this.sidebarContainer.MaximumSize = new System.Drawing.Size(170, 450);
+            this.sidebarContainer.MinimumSize = new System.Drawing.Size(66, 450);
+            this.sidebarContainer.Name = "sidebarContainer";
+            this.sidebarContainer.Size = new System.Drawing.Size(170, 450);
+            this.sidebarContainer.TabIndex = 1;
+            this.sidebarContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebarContainer_Paint);
             // 
-            // homeSPanel
+            // menuPanel
             // 
-            this.homeSPanel.Location = new System.Drawing.Point(3, 45);
-            this.homeSPanel.Name = "homeSPanel";
-            this.homeSPanel.Size = new System.Drawing.Size(150, 43);
-            this.homeSPanel.TabIndex = 1;
-            this.homeSPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.homeSPanel_Paint);
+            this.menuPanel.Controls.Add(this.menulbl);
+            this.menuPanel.Controls.Add(this.menuButton);
+            this.menuPanel.Location = new System.Drawing.Point(3, 3);
+            this.menuPanel.Name = "menuPanel";
+            this.menuPanel.Size = new System.Drawing.Size(167, 100);
+            this.menuPanel.TabIndex = 0;
+            // 
+            // menulbl
+            // 
+            this.menulbl.AutoSize = true;
+            this.menulbl.Location = new System.Drawing.Point(86, 34);
+            this.menulbl.Name = "menulbl";
+            this.menulbl.Size = new System.Drawing.Size(40, 16);
+            this.menulbl.TabIndex = 1;
+            this.menulbl.Text = "Menu";
+            // 
+            // menuButton
+            // 
+            this.menuButton.Image = ((System.Drawing.Image)(resources.GetObject("menuButton.Image")));
+            this.menuButton.Location = new System.Drawing.Point(9, 9);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(53, 50);
+            this.menuButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.menuButton.TabIndex = 0;
+            this.menuButton.TabStop = false;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
+            // 
+            // homePanel
+            // 
+            this.homePanel.Controls.Add(this.homebtn);
+            this.homePanel.Location = new System.Drawing.Point(3, 109);
+            this.homePanel.Name = "homePanel";
+            this.homePanel.Size = new System.Drawing.Size(167, 46);
+            this.homePanel.TabIndex = 1;
             // 
             // homebtn
             // 
-            this.homebtn.Location = new System.Drawing.Point(3, 3);
+            this.homebtn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.homebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.homebtn.Image = global::PowerToysForXP.Properties.Resources.home;
+            this.homebtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.homebtn.Location = new System.Drawing.Point(3, 12);
             this.homebtn.Name = "homebtn";
-            this.homebtn.Size = new System.Drawing.Size(150, 36);
+            this.homebtn.Size = new System.Drawing.Size(164, 31);
             this.homebtn.TabIndex = 2;
             this.homebtn.Text = "Home";
-            this.homebtn.UseVisualStyleBackColor = true;
+            this.homebtn.UseVisualStyleBackColor = false;
+            // 
+            // aboutPanel
+            // 
+            this.aboutPanel.Controls.Add(this.aboutbtn);
+            this.aboutPanel.Location = new System.Drawing.Point(3, 161);
+            this.aboutPanel.Name = "aboutPanel";
+            this.aboutPanel.Size = new System.Drawing.Size(167, 46);
+            this.aboutPanel.TabIndex = 2;
+            // 
+            // aboutbtn
+            // 
+            this.aboutbtn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.aboutbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.aboutbtn.Image = global::PowerToysForXP.Properties.Resources.about1;
+            this.aboutbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.aboutbtn.Location = new System.Drawing.Point(3, 12);
+            this.aboutbtn.Name = "aboutbtn";
+            this.aboutbtn.Size = new System.Drawing.Size(164, 31);
+            this.aboutbtn.TabIndex = 2;
+            this.aboutbtn.Text = "About";
+            this.aboutbtn.UseVisualStyleBackColor = false;
+            // 
+            // helpPanel
+            // 
+            this.helpPanel.Controls.Add(this.helpbtn);
+            this.helpPanel.Location = new System.Drawing.Point(3, 213);
+            this.helpPanel.Name = "helpPanel";
+            this.helpPanel.Size = new System.Drawing.Size(167, 46);
+            this.helpPanel.TabIndex = 3;
+            // 
+            // helpbtn
+            // 
+            this.helpbtn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.helpbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpbtn.Image = global::PowerToysForXP.Properties.Resources.help;
+            this.helpbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.helpbtn.Location = new System.Drawing.Point(3, 12);
+            this.helpbtn.Name = "helpbtn";
+            this.helpbtn.Size = new System.Drawing.Size(164, 31);
+            this.helpbtn.TabIndex = 2;
+            this.helpbtn.Text = "Help";
+            this.helpbtn.UseVisualStyleBackColor = false;
+            // 
+            // settingPanel
+            // 
+            this.settingPanel.Controls.Add(this.settingbtn);
+            this.settingPanel.Location = new System.Drawing.Point(3, 265);
+            this.settingPanel.Name = "settingPanel";
+            this.settingPanel.Size = new System.Drawing.Size(167, 46);
+            this.settingPanel.TabIndex = 4;
+            // 
+            // settingbtn
+            // 
+            this.settingbtn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.settingbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingbtn.Image = global::PowerToysForXP.Properties.Resources.settings;
+            this.settingbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.settingbtn.Location = new System.Drawing.Point(3, 12);
+            this.settingbtn.Name = "settingbtn";
+            this.settingbtn.Size = new System.Drawing.Size(164, 31);
+            this.settingbtn.TabIndex = 2;
+            this.settingbtn.Text = "Setting";
+            this.settingbtn.UseVisualStyleBackColor = false;
+            // 
+            // browserPanel
+            // 
+            this.browserPanel.Controls.Add(this.browserbtn);
+            this.browserPanel.Location = new System.Drawing.Point(3, 317);
+            this.browserPanel.Name = "browserPanel";
+            this.browserPanel.Size = new System.Drawing.Size(167, 46);
+            this.browserPanel.TabIndex = 5;
+            // 
+            // browserbtn
+            // 
+            this.browserbtn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.browserbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.browserbtn.Image = global::PowerToysForXP.Properties.Resources.settings;
+            this.browserbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.browserbtn.Location = new System.Drawing.Point(3, 12);
+            this.browserbtn.Name = "browserbtn";
+            this.browserbtn.Size = new System.Drawing.Size(164, 31);
+            this.browserbtn.TabIndex = 2;
+            this.browserbtn.Text = "Browser";
+            this.browserbtn.UseVisualStyleBackColor = false;
+            // 
+            // sidebarTimer
+            // 
+            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
+            // 
+            // browserPanelView
+            // 
+            this.browserPanelView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.browserPanelView.Controls.Add(this.url);
+            this.browserPanelView.Controls.Add(this.forwardBtn);
+            this.browserPanelView.Controls.Add(this.backBtn);
+            this.browserPanelView.Controls.Add(this.navigatebtn);
+            this.browserPanelView.Controls.Add(this.refreshBtn);
+            this.browserPanelView.Controls.Add(this.browserWindow);
+            this.browserPanelView.Location = new System.Drawing.Point(176, 0);
+            this.browserPanelView.Name = "browserPanelView";
+            this.browserPanelView.Size = new System.Drawing.Size(624, 450);
+            this.browserPanelView.TabIndex = 2;
+            this.browserPanelView.Paint += new System.Windows.Forms.PaintEventHandler(this.browserPanelView_Paint);
+            // 
+            // url
+            // 
+            this.url.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.url.Location = new System.Drawing.Point(418, 18);
+            this.url.Name = "url";
+            this.url.Size = new System.Drawing.Size(194, 22);
+            this.url.TabIndex = 6;
+            this.url.Enter += new System.EventHandler(this.url_Enter);
+            this.url.Leave += new System.EventHandler(this.navigatebtn_Click);
+            // 
+            // forwardBtn
+            // 
+            this.forwardBtn.Location = new System.Drawing.Point(212, 10);
+            this.forwardBtn.Name = "forwardBtn";
+            this.forwardBtn.Size = new System.Drawing.Size(97, 38);
+            this.forwardBtn.TabIndex = 5;
+            this.forwardBtn.Text = "Forward";
+            this.forwardBtn.UseVisualStyleBackColor = true;
+            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click);
+            // 
+            // backBtn
+            // 
+            this.backBtn.Location = new System.Drawing.Point(315, 10);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(97, 38);
+            this.backBtn.TabIndex = 4;
+            this.backBtn.Text = "Back";
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
+            // navigatebtn
+            // 
+            this.navigatebtn.Location = new System.Drawing.Point(109, 10);
+            this.navigatebtn.Name = "navigatebtn";
+            this.navigatebtn.Size = new System.Drawing.Size(97, 38);
+            this.navigatebtn.TabIndex = 3;
+            this.navigatebtn.Text = "Navigate";
+            this.navigatebtn.UseVisualStyleBackColor = true;
+            this.navigatebtn.Click += new System.EventHandler(this.navigatebtn_Click);
+            // 
+            // refreshBtn
+            // 
+            this.refreshBtn.Location = new System.Drawing.Point(6, 10);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(97, 38);
+            this.refreshBtn.TabIndex = 2;
+            this.refreshBtn.Text = "Refresh";
+            this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
+            // browserWindow
+            // 
+            this.browserWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.browserWindow.Location = new System.Drawing.Point(0, 54);
+            this.browserWindow.MinimumSize = new System.Drawing.Size(20, 20);
+            this.browserWindow.Name = "browserWindow";
+            this.browserWindow.Size = new System.Drawing.Size(624, 393);
+            this.browserWindow.TabIndex = 0;
+            // 
+            // homePanelView
+            // 
+            this.homePanelView.Controls.Add(this.colorpickerCheckBox);
+            this.homePanelView.Controls.Add(this.homelbl);
+            this.homePanelView.Location = new System.Drawing.Point(167, 0);
+            this.homePanelView.Name = "homePanelView";
+            this.homePanelView.Size = new System.Drawing.Size(630, 447);
+            this.homePanelView.TabIndex = 7;
+            // 
+            // homelbl
+            // 
+            this.homelbl.AutoSize = true;
+            this.homelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homelbl.Location = new System.Drawing.Point(251, 3);
+            this.homelbl.Name = "homelbl";
+            this.homelbl.Size = new System.Drawing.Size(93, 32);
+            this.homelbl.TabIndex = 0;
+            this.homelbl.Text = "Home";
+            // 
+            // colorpickerCheckBox
+            // 
+            this.colorpickerCheckBox.AutoSize = true;
+            this.colorpickerCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.colorpickerCheckBox.Checked = true;
+            this.colorpickerCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.colorpickerCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colorpickerCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colorpickerCheckBox.Location = new System.Drawing.Point(89, 129);
+            this.colorpickerCheckBox.Name = "colorpickerCheckBox";
+            this.colorpickerCheckBox.Size = new System.Drawing.Size(138, 26);
+            this.colorpickerCheckBox.TabIndex = 1;
+            this.colorpickerCheckBox.Text = "Color Picker";
+            this.colorpickerCheckBox.UseVisualStyleBackColor = true;
+            this.colorpickerCheckBox.CheckedChanged += new System.EventHandler(this.colorpickerCheckBox_CheckedChanged);
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.sidebar);
+            this.Controls.Add(this.homePanelView);
+            this.Controls.Add(this.browserPanelView);
+            this.Controls.Add(this.sidebarContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
             this.Text = "Power Toys For XP";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.Load += new System.EventHandler(this.Home_Load);
-            this.sidebar.ResumeLayout(false);
+            this.sidebarContainer.ResumeLayout(false);
+            this.menuPanel.ResumeLayout(false);
+            this.menuPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menuButton)).EndInit();
+            this.homePanel.ResumeLayout(false);
+            this.aboutPanel.ResumeLayout(false);
+            this.helpPanel.ResumeLayout(false);
+            this.settingPanel.ResumeLayout(false);
+            this.browserPanel.ResumeLayout(false);
+            this.browserPanelView.ResumeLayout(false);
+            this.browserPanelView.PerformLayout();
+            this.homePanelView.ResumeLayout(false);
+            this.homePanelView.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel sidebar;
-        private System.Windows.Forms.Panel homeSPanel;
+        private System.Windows.Forms.FlowLayoutPanel sidebarContainer;
+        private System.Windows.Forms.Panel menuPanel;
+        private System.Windows.Forms.Label menulbl;
+        private System.Windows.Forms.PictureBox menuButton;
+        private System.Windows.Forms.Panel homePanel;
         private System.Windows.Forms.Button homebtn;
+        private System.Windows.Forms.Panel aboutPanel;
+        private System.Windows.Forms.Button aboutbtn;
+        private System.Windows.Forms.Panel helpPanel;
+        private System.Windows.Forms.Button helpbtn;
+        private System.Windows.Forms.Panel settingPanel;
+        private System.Windows.Forms.Button settingbtn;
+        private System.Windows.Forms.Timer sidebarTimer;
+        private System.Windows.Forms.Panel browserPanel;
+        private System.Windows.Forms.Button browserbtn;
+        private System.Windows.Forms.Panel browserPanelView;
+        private System.Windows.Forms.WebBrowser browserWindow;
+        private System.Windows.Forms.Button refreshBtn;
+        private System.Windows.Forms.Button navigatebtn;
+        private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Button forwardBtn;
+        private System.Windows.Forms.TextBox url;
+        private System.Windows.Forms.Panel homePanelView;
+        private System.Windows.Forms.Label homelbl;
+        private System.Windows.Forms.CheckBox colorpickerCheckBox;
     }
 }

@@ -15,7 +15,7 @@ namespace PowerToysForXP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Sidebar());
+            Application.Run(new Home());
         }
     }
 }

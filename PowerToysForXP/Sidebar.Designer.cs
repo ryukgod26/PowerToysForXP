@@ -41,8 +41,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.homebtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.menuButton = new System.Windows.Forms.PictureBox();
             this.menulbl = new System.Windows.Forms.Label();
+            this.menuButton = new System.Windows.Forms.PictureBox();
             this.sidebarContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.homePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -172,6 +172,15 @@
             this.panel1.Size = new System.Drawing.Size(167, 100);
             this.panel1.TabIndex = 0;
             // 
+            // menulbl
+            // 
+            this.menulbl.AutoSize = true;
+            this.menulbl.Location = new System.Drawing.Point(86, 34);
+            this.menulbl.Name = "menulbl";
+            this.menulbl.Size = new System.Drawing.Size(40, 16);
+            this.menulbl.TabIndex = 1;
+            this.menulbl.Text = "Menu";
+            // 
             // menuButton
             // 
             this.menuButton.Image = ((System.Drawing.Image)(resources.GetObject("menuButton.Image")));
@@ -182,15 +191,6 @@
             this.menuButton.TabIndex = 0;
             this.menuButton.TabStop = false;
             this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
-            // 
-            // menulbl
-            // 
-            this.menulbl.AutoSize = true;
-            this.menulbl.Location = new System.Drawing.Point(86, 34);
-            this.menulbl.Name = "menulbl";
-            this.menulbl.Size = new System.Drawing.Size(40, 16);
-            this.menulbl.TabIndex = 1;
-            this.menulbl.Text = "Menu";
             // 
             // sidebarContainer
             // 
@@ -285,10 +285,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.homePanel);
             this.Controls.Add(this.settingPanel);
             this.Controls.Add(this.helpPanel);
             this.Controls.Add(this.aboutPanel);
-            this.Controls.Add(this.homePanel);
             this.Controls.Add(this.sidebarContainer);
             this.Name = "Sidebar";
             this.Text = "Sidebar";
