@@ -53,8 +53,13 @@
             this.refreshBtn = new System.Windows.Forms.Button();
             this.browserWindow = new System.Windows.Forms.WebBrowser();
             this.homePanelView = new System.Windows.Forms.Panel();
-            this.homelbl = new System.Windows.Forms.Label();
             this.colorpickerCheckBox = new System.Windows.Forms.CheckBox();
+            this.homelbl = new System.Windows.Forms.Label();
+            this.keyboardKeyMapper = new System.Windows.Forms.CheckBox();
+            this.fromKey = new System.Windows.Forms.ComboBox();
+            this.toKey = new System.Windows.Forms.ComboBox();
+            this.fromlbl = new System.Windows.Forms.Label();
+            this.tolbl = new System.Windows.Forms.Label();
             this.sidebarContainer.SuspendLayout();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
@@ -303,12 +308,33 @@
             // 
             // homePanelView
             // 
+            this.homePanelView.Controls.Add(this.tolbl);
+            this.homePanelView.Controls.Add(this.fromlbl);
+            this.homePanelView.Controls.Add(this.toKey);
+            this.homePanelView.Controls.Add(this.fromKey);
+            this.homePanelView.Controls.Add(this.keyboardKeyMapper);
             this.homePanelView.Controls.Add(this.colorpickerCheckBox);
             this.homePanelView.Controls.Add(this.homelbl);
             this.homePanelView.Location = new System.Drawing.Point(167, 0);
             this.homePanelView.Name = "homePanelView";
             this.homePanelView.Size = new System.Drawing.Size(630, 447);
             this.homePanelView.TabIndex = 7;
+            // 
+            // colorpickerCheckBox
+            // 
+            this.colorpickerCheckBox.AutoSize = true;
+            this.colorpickerCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.colorpickerCheckBox.Checked = true;
+            this.colorpickerCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.colorpickerCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colorpickerCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colorpickerCheckBox.Location = new System.Drawing.Point(91, 109);
+            this.colorpickerCheckBox.Name = "colorpickerCheckBox";
+            this.colorpickerCheckBox.Size = new System.Drawing.Size(138, 26);
+            this.colorpickerCheckBox.TabIndex = 1;
+            this.colorpickerCheckBox.Text = "Color Picker";
+            this.colorpickerCheckBox.UseVisualStyleBackColor = true;
+            this.colorpickerCheckBox.CheckedChanged += new System.EventHandler(this.colorpickerCheckBox_CheckedChanged);
             // 
             // homelbl
             // 
@@ -320,21 +346,105 @@
             this.homelbl.TabIndex = 0;
             this.homelbl.Text = "Home";
             // 
-            // colorpickerCheckBox
+            // keyboardKeyMapper
             // 
-            this.colorpickerCheckBox.AutoSize = true;
-            this.colorpickerCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.colorpickerCheckBox.Checked = true;
-            this.colorpickerCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.colorpickerCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colorpickerCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colorpickerCheckBox.Location = new System.Drawing.Point(89, 129);
-            this.colorpickerCheckBox.Name = "colorpickerCheckBox";
-            this.colorpickerCheckBox.Size = new System.Drawing.Size(138, 26);
-            this.colorpickerCheckBox.TabIndex = 1;
-            this.colorpickerCheckBox.Text = "Color Picker";
-            this.colorpickerCheckBox.UseVisualStyleBackColor = true;
-            this.colorpickerCheckBox.CheckedChanged += new System.EventHandler(this.colorpickerCheckBox_CheckedChanged);
+            this.keyboardKeyMapper.AutoSize = true;
+            this.keyboardKeyMapper.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.keyboardKeyMapper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.keyboardKeyMapper.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.keyboardKeyMapper.Location = new System.Drawing.Point(353, 109);
+            this.keyboardKeyMapper.Name = "keyboardKeyMapper";
+            this.keyboardKeyMapper.Size = new System.Drawing.Size(233, 26);
+            this.keyboardKeyMapper.TabIndex = 2;
+            this.keyboardKeyMapper.Text = "Key Board Key Mapper";
+            this.keyboardKeyMapper.UseVisualStyleBackColor = true;
+            this.keyboardKeyMapper.CheckedChanged += new System.EventHandler(this.keyboardKeyMapper_CheckedChanged);
+            // 
+            // fromKey
+            // 
+            this.fromKey.FormattingEnabled = true;
+            this.fromKey.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "W",
+            "X",
+            "Y",
+            "Z"});
+            this.fromKey.Location = new System.Drawing.Point(338, 183);
+            this.fromKey.Name = "fromKey";
+            this.fromKey.Size = new System.Drawing.Size(121, 24);
+            this.fromKey.TabIndex = 3;
+            // 
+            // toKey
+            // 
+            this.toKey.FormattingEnabled = true;
+            this.toKey.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "W",
+            "X",
+            "Y",
+            "Z"});
+            this.toKey.Location = new System.Drawing.Point(465, 183);
+            this.toKey.Name = "toKey";
+            this.toKey.Size = new System.Drawing.Size(121, 24);
+            this.toKey.TabIndex = 4;
+            // 
+            // fromlbl
+            // 
+            this.fromlbl.AutoSize = true;
+            this.fromlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromlbl.Location = new System.Drawing.Point(364, 155);
+            this.fromlbl.Name = "fromlbl";
+            this.fromlbl.Size = new System.Drawing.Size(57, 25);
+            this.fromlbl.TabIndex = 5;
+            this.fromlbl.Text = "From";
+            // 
+            // tolbl
+            // 
+            this.tolbl.AutoSize = true;
+            this.tolbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tolbl.Location = new System.Drawing.Point(496, 155);
+            this.tolbl.Name = "tolbl";
+            this.tolbl.Size = new System.Drawing.Size(36, 25);
+            this.tolbl.TabIndex = 6;
+            this.tolbl.Text = "To";
             // 
             // Home
             // 
@@ -393,5 +503,10 @@
         private System.Windows.Forms.Panel homePanelView;
         private System.Windows.Forms.Label homelbl;
         private System.Windows.Forms.CheckBox colorpickerCheckBox;
+        private System.Windows.Forms.CheckBox keyboardKeyMapper;
+        private System.Windows.Forms.Label fromlbl;
+        private System.Windows.Forms.ComboBox toKey;
+        private System.Windows.Forms.ComboBox fromKey;
+        private System.Windows.Forms.Label tolbl;
     }
 }

@@ -36,6 +36,9 @@ namespace PowerToysForXP
         //booleans for color picker
         bool unregisteredColorPicker;
 
+        //for key board hooker
+        bool hookStarted;
+
         //boolean for sidebar
         bool sidebarExpand;
         public Home()
@@ -64,7 +67,11 @@ namespace PowerToysForXP
         }
         private void Home_Load(object sender, EventArgs e)
         {
+            //Registring Hotkeys for Color Picker
             RegisterColorPickerKey();
+
+            //Starting the Keyboard Hook
+            KeyboarrdHook.Start();
         }
 
         private void toolTip1_Popup(object sender, PopupEventArgs e)
@@ -200,6 +207,12 @@ namespace PowerToysForXP
             {
                 //unregistering Colour Picker Hotkey
                 UnregisterHotKey(this.Handle, COLOUR_PICKER_HOTKEY_ID);
+
+            }
+            if (hookStarted)
+            {
+                //Stoping the Keyboard Hook
+                KeyboarrdHook.Stop();
             }
         }
         private void unRegisterColorPicker()
@@ -218,6 +231,20 @@ namespace PowerToysForXP
             {
                 unRegisterColorPicker();
                 unregisteredColorPicker = true;
+            }
+        }
+
+        private void keyboardKeyMapper_CheckedChanged(object sender, EventArgs e)
+        {
+            if(fromKey.SelectedIndex == -1 || fromKey.SelectedItem == null || toKey.SelectedItem == null || toKey.SelectedIndex == -1 || toKey.SelectedItem == fromKey.SelectedItem)
+            {
+                MessageBox.Show("Cannot remap a key to itself or null");
+                keyboardKeyMapper.Checked = false;
+            }
+            else
+            {
+                KeyboarrdHook.Start();
+                hookStarted = true;
             }
         }
     }
