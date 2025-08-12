@@ -298,6 +298,9 @@
             // 
             // homePanelView
             // 
+            this.homePanelView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.homePanelView.Controls.Add(this.label1);
             this.homePanelView.Controls.Add(this.tolbl);
             this.homePanelView.Controls.Add(this.fromlbl);
@@ -472,6 +475,9 @@
             // 
             // aboutPanelView
             // 
+            this.aboutPanelView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.aboutPanelView.Controls.Add(this.linkLabel1);
             this.aboutPanelView.Controls.Add(this.message);
             this.aboutPanelView.Controls.Add(this.aboutlbl);
@@ -492,6 +498,9 @@
             // 
             // message
             // 
+            this.message.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.message.Font = new System.Drawing.Font("Arial Black", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.message.ForeColor = System.Drawing.Color.Black;
             this.message.Location = new System.Drawing.Point(24, 75);
