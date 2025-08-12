@@ -1435,6 +1435,12 @@
   <metadata name="sidebarTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="message.Text" xml:space="preserve">
+    <value>This is a small Project created by a solo dev . This App contains Some features like Windows Power Toys Which does not work on Windows xp now. I have added some features of Windows Powers Toys in this app . This app is Built to run on Windows xp. You will have to download .net 2.0 framework to use this app on Windows Xp. If you find any issues in this Project. Please Update it in the Issues tab on my github (link in below the message). This is the first Version of App. I wiill add more features Later.</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>68</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAPwAAAEAIACoDwQAFgAAACgAAAAAAQAA+AEAAAEAIAAAAAAAAPADAMMOAADDDgAAAAAAAAAA

@@ -41,6 +41,9 @@ namespace PowerToysForXP
 
         //boolean for sidebar
         bool sidebarExpand;
+
+        //For Dark Mode
+        bool themeDark;
         public Home()
         {
             
@@ -70,8 +73,7 @@ namespace PowerToysForXP
             //Registring Hotkeys for Color Picker
             RegisterColorPickerKey();
 
-            //Starting the Keyboard Hook
-            KeyboarrdHook.Start();
+
         }
 
         private void toolTip1_Popup(object sender, PopupEventArgs e)
@@ -243,9 +245,105 @@ namespace PowerToysForXP
             }
             else
             {
-                KeyboarrdHook.Start();
+                String fromStr = fromKey.Text;
+                String toStr = toKey.Text;
+                Keys fromKeyValue = (Keys)Enum.Parse(typeof(Keys),fromStr,true);
+                Keys toKeyValue = (Keys)Enum.Parse(typeof(Keys), toStr, true);
+                KeyboarrdHook.Start(fromKeyValue,toKeyValue);
                 hookStarted = true;
             }
+        }
+
+        private void applyTheme()
+        {
+            if (themeDark)
+            {
+                settingsPanelView.BackColor = Color.Black;
+                settingsPanelView.ForeColor = Color.White;
+
+                homePanelView.BackColor = Color.Black;
+                homePanelView.ForeColor = Color.White;
+
+                browserPanelView.BackColor = Color.Black;
+                browserPanelView.ForeColor = Color.White;
+
+                sidebarContainer.BackColor = Color.Gray;
+                sidebarContainer.ForeColor = Color.White;
+
+                //settingsPanelView.BackColor = Color.Black;
+                //settingsPanelView.ForeColor = Color.White;
+            }
+            else
+            {
+                sidebarContainer.BackColor = Color.LightCyan;
+                sidebarContainer.ForeColor = Color.White;
+
+                settingsPanelView.BackColor = Color.White;
+                settingsPanelView.ForeColor = Color.Black;
+
+                homePanelView.BackColor = Color.White;
+                homePanelView.ForeColor = Color.Black;
+
+                browserPanelView.BackColor = Color.White;
+                browserPanelView.ForeColor = Color.Black;
+            }
+        }
+        private void darkModeCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (darkModeCheckbox.Checked)
+            {
+                themeDark = true;
+                applyTheme();
+            }
+            else
+            {
+                themeDark = false;
+                applyTheme();
+            }
+        }
+
+        private void homebtn_Click_1(object sender, EventArgs e)
+        {
+            homePanelView.Visible = true;
+            settingsPanelView.Visible = false;
+            browserPanelView.Visible = false;
+            aboutPanelView.Visible = false;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            browserbtn_Click(sender,e);
+            url.Text = "https://github.com/ryukgod26/PowerToysForXP";
+            url_Enter(sender, e);
+        }
+
+        private void aboutbtn_Click(object sender, EventArgs e)
+        {
+            homePanelView.Visible = false;
+            settingsPanelView.Visible = false;
+            browserPanelView.Visible = false;
+            aboutPanelView.Visible = true;
+        }
+
+        private void settingPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void browserbtn_Click(object sender, EventArgs e)
+        {
+            homePanelView.Visible = false;
+            settingsPanelView.Visible = false;
+            browserPanelView.Visible = true;
+            aboutPanelView.Visible = false;
+        }
+
+        private void settingbtn_Click(object sender, EventArgs e)
+        {
+            homePanelView.Visible = false;
+            settingsPanelView.Visible = true;
+            browserPanelView.Visible = false;
+            aboutPanelView.Visible = false;
         }
     }
 }

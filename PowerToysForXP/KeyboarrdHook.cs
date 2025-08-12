@@ -22,15 +22,19 @@ public class KeyboarrdHook
     private static HookCallback _proc = HookCallbackMethod;
 
     private static IntPtr _hookID = IntPtr.Zero;
+    private static Keys from;
+    private static Keys to;
 
-    public static void Start()
+    public static void Start(Keys fromInput, Keys toInput)
     {
+        from = fromInput;
+        to = toInput;
         _hookID = SetHook(_proc);
     }
 
     public static void Stop()
     {
-        UnHookWindowsHookEx(_hookID);
+        UnhookWindowsHookEx(_hookID);
     }
 
     private static IntPtr SetHook(HookCallback proc)
@@ -52,21 +56,21 @@ public class KeyboarrdHook
             Keys key = (Keys)vkCode;
 
             //Reamping the keys (a Single Key)
-            if(key == Keys.A)
+            if(key == from)
             {
-                //Checking if A is pressed down or up
+                //Checking if from is pressed down or up
                 if(wParam == (IntPtr)WM_KEYDOWN || wParam == (IntPtr)WM_SYSKEYDOWN )
                 {
-                    //Simulating Key B down
-                    keybd_event((byte)Keys.B, 0, 0, 0);
+                    //Simulating to Key down
+                    keybd_event((byte)to, 0, 0, 0);
 
                 }
                 else if(wParam == (IntPtr)WM_KEYUP || wParam == (IntPtr)WM_SYSKEYUP)
                 {
-                    //Simulating Key B up
-                    keybd_event((byte)Keys.B, 0, 2, 0);
+                    //Simulating to Key up
+                    keybd_event((byte)to, 0, 2, 0);
                 }
-                //By returning 1 We nullify the original Key A Press
+                //By returning 1 We nullify the original Key from Press
                 return (IntPtr)1;
             }
         }
@@ -82,7 +86,7 @@ public class KeyboarrdHook
 
     [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
-    private static extern bool UnHookWindowsHookEx(IntPtr hhk);
+    private static extern bool UnhookWindowsHookEx(IntPtr hhk);
 
     [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
     private static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);

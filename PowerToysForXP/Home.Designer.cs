@@ -38,8 +38,6 @@
             this.homebtn = new System.Windows.Forms.Button();
             this.aboutPanel = new System.Windows.Forms.Panel();
             this.aboutbtn = new System.Windows.Forms.Button();
-            this.helpPanel = new System.Windows.Forms.Panel();
-            this.helpbtn = new System.Windows.Forms.Button();
             this.settingPanel = new System.Windows.Forms.Panel();
             this.settingbtn = new System.Windows.Forms.Button();
             this.browserPanel = new System.Windows.Forms.Panel();
@@ -53,23 +51,32 @@
             this.refreshBtn = new System.Windows.Forms.Button();
             this.browserWindow = new System.Windows.Forms.WebBrowser();
             this.homePanelView = new System.Windows.Forms.Panel();
+            this.tolbl = new System.Windows.Forms.Label();
+            this.fromlbl = new System.Windows.Forms.Label();
+            this.toKey = new System.Windows.Forms.ComboBox();
+            this.fromKey = new System.Windows.Forms.ComboBox();
+            this.keyboardKeyMapper = new System.Windows.Forms.CheckBox();
             this.colorpickerCheckBox = new System.Windows.Forms.CheckBox();
             this.homelbl = new System.Windows.Forms.Label();
-            this.keyboardKeyMapper = new System.Windows.Forms.CheckBox();
-            this.fromKey = new System.Windows.Forms.ComboBox();
-            this.toKey = new System.Windows.Forms.ComboBox();
-            this.fromlbl = new System.Windows.Forms.Label();
-            this.tolbl = new System.Windows.Forms.Label();
+            this.settingsPanelView = new System.Windows.Forms.Panel();
+            this.settingslbl = new System.Windows.Forms.Label();
+            this.darkModeCheckbox = new System.Windows.Forms.CheckBox();
+            this.aboutPanelView = new System.Windows.Forms.Panel();
+            this.aboutlbl = new System.Windows.Forms.Label();
+            this.message = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.sidebarContainer.SuspendLayout();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
             this.homePanel.SuspendLayout();
             this.aboutPanel.SuspendLayout();
-            this.helpPanel.SuspendLayout();
             this.settingPanel.SuspendLayout();
             this.browserPanel.SuspendLayout();
             this.browserPanelView.SuspendLayout();
             this.homePanelView.SuspendLayout();
+            this.settingsPanelView.SuspendLayout();
+            this.aboutPanelView.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebarContainer
@@ -78,7 +85,6 @@
             this.sidebarContainer.Controls.Add(this.menuPanel);
             this.sidebarContainer.Controls.Add(this.homePanel);
             this.sidebarContainer.Controls.Add(this.aboutPanel);
-            this.sidebarContainer.Controls.Add(this.helpPanel);
             this.sidebarContainer.Controls.Add(this.settingPanel);
             this.sidebarContainer.Controls.Add(this.browserPanel);
             this.sidebarContainer.Location = new System.Drawing.Point(0, 0);
@@ -138,6 +144,7 @@
             this.homebtn.TabIndex = 2;
             this.homebtn.Text = "Home";
             this.homebtn.UseVisualStyleBackColor = false;
+            this.homebtn.Click += new System.EventHandler(this.homebtn_Click_1);
             // 
             // aboutPanel
             // 
@@ -159,35 +166,16 @@
             this.aboutbtn.TabIndex = 2;
             this.aboutbtn.Text = "About";
             this.aboutbtn.UseVisualStyleBackColor = false;
-            // 
-            // helpPanel
-            // 
-            this.helpPanel.Controls.Add(this.helpbtn);
-            this.helpPanel.Location = new System.Drawing.Point(3, 213);
-            this.helpPanel.Name = "helpPanel";
-            this.helpPanel.Size = new System.Drawing.Size(167, 46);
-            this.helpPanel.TabIndex = 3;
-            // 
-            // helpbtn
-            // 
-            this.helpbtn.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.helpbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.helpbtn.Image = global::PowerToysForXP.Properties.Resources.help;
-            this.helpbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.helpbtn.Location = new System.Drawing.Point(3, 12);
-            this.helpbtn.Name = "helpbtn";
-            this.helpbtn.Size = new System.Drawing.Size(164, 31);
-            this.helpbtn.TabIndex = 2;
-            this.helpbtn.Text = "Help";
-            this.helpbtn.UseVisualStyleBackColor = false;
+            this.aboutbtn.Click += new System.EventHandler(this.aboutbtn_Click);
             // 
             // settingPanel
             // 
             this.settingPanel.Controls.Add(this.settingbtn);
-            this.settingPanel.Location = new System.Drawing.Point(3, 265);
+            this.settingPanel.Location = new System.Drawing.Point(3, 213);
             this.settingPanel.Name = "settingPanel";
             this.settingPanel.Size = new System.Drawing.Size(167, 46);
             this.settingPanel.TabIndex = 4;
+            this.settingPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.settingPanel_Paint);
             // 
             // settingbtn
             // 
@@ -201,11 +189,12 @@
             this.settingbtn.TabIndex = 2;
             this.settingbtn.Text = "Setting";
             this.settingbtn.UseVisualStyleBackColor = false;
+            this.settingbtn.Click += new System.EventHandler(this.settingbtn_Click);
             // 
             // browserPanel
             // 
             this.browserPanel.Controls.Add(this.browserbtn);
-            this.browserPanel.Location = new System.Drawing.Point(3, 317);
+            this.browserPanel.Location = new System.Drawing.Point(3, 265);
             this.browserPanel.Name = "browserPanel";
             this.browserPanel.Size = new System.Drawing.Size(167, 46);
             this.browserPanel.TabIndex = 5;
@@ -222,6 +211,7 @@
             this.browserbtn.TabIndex = 2;
             this.browserbtn.Text = "Browser";
             this.browserbtn.UseVisualStyleBackColor = false;
+            this.browserbtn.Click += new System.EventHandler(this.browserbtn_Click);
             // 
             // sidebarTimer
             // 
@@ -308,6 +298,7 @@
             // 
             // homePanelView
             // 
+            this.homePanelView.Controls.Add(this.label1);
             this.homePanelView.Controls.Add(this.tolbl);
             this.homePanelView.Controls.Add(this.fromlbl);
             this.homePanelView.Controls.Add(this.toKey);
@@ -315,83 +306,30 @@
             this.homePanelView.Controls.Add(this.keyboardKeyMapper);
             this.homePanelView.Controls.Add(this.colorpickerCheckBox);
             this.homePanelView.Controls.Add(this.homelbl);
-            this.homePanelView.Location = new System.Drawing.Point(167, 0);
+            this.homePanelView.Location = new System.Drawing.Point(176, 0);
             this.homePanelView.Name = "homePanelView";
-            this.homePanelView.Size = new System.Drawing.Size(630, 447);
+            this.homePanelView.Size = new System.Drawing.Size(624, 450);
             this.homePanelView.TabIndex = 7;
             // 
-            // colorpickerCheckBox
+            // tolbl
             // 
-            this.colorpickerCheckBox.AutoSize = true;
-            this.colorpickerCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.colorpickerCheckBox.Checked = true;
-            this.colorpickerCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.colorpickerCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colorpickerCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colorpickerCheckBox.Location = new System.Drawing.Point(91, 109);
-            this.colorpickerCheckBox.Name = "colorpickerCheckBox";
-            this.colorpickerCheckBox.Size = new System.Drawing.Size(138, 26);
-            this.colorpickerCheckBox.TabIndex = 1;
-            this.colorpickerCheckBox.Text = "Color Picker";
-            this.colorpickerCheckBox.UseVisualStyleBackColor = true;
-            this.colorpickerCheckBox.CheckedChanged += new System.EventHandler(this.colorpickerCheckBox_CheckedChanged);
+            this.tolbl.AutoSize = true;
+            this.tolbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tolbl.Location = new System.Drawing.Point(496, 155);
+            this.tolbl.Name = "tolbl";
+            this.tolbl.Size = new System.Drawing.Size(36, 25);
+            this.tolbl.TabIndex = 6;
+            this.tolbl.Text = "To";
             // 
-            // homelbl
+            // fromlbl
             // 
-            this.homelbl.AutoSize = true;
-            this.homelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homelbl.Location = new System.Drawing.Point(251, 3);
-            this.homelbl.Name = "homelbl";
-            this.homelbl.Size = new System.Drawing.Size(93, 32);
-            this.homelbl.TabIndex = 0;
-            this.homelbl.Text = "Home";
-            // 
-            // keyboardKeyMapper
-            // 
-            this.keyboardKeyMapper.AutoSize = true;
-            this.keyboardKeyMapper.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.keyboardKeyMapper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.keyboardKeyMapper.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.keyboardKeyMapper.Location = new System.Drawing.Point(353, 109);
-            this.keyboardKeyMapper.Name = "keyboardKeyMapper";
-            this.keyboardKeyMapper.Size = new System.Drawing.Size(233, 26);
-            this.keyboardKeyMapper.TabIndex = 2;
-            this.keyboardKeyMapper.Text = "Key Board Key Mapper";
-            this.keyboardKeyMapper.UseVisualStyleBackColor = true;
-            this.keyboardKeyMapper.CheckedChanged += new System.EventHandler(this.keyboardKeyMapper_CheckedChanged);
-            // 
-            // fromKey
-            // 
-            this.fromKey.FormattingEnabled = true;
-            this.fromKey.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.fromKey.Location = new System.Drawing.Point(338, 183);
-            this.fromKey.Name = "fromKey";
-            this.fromKey.Size = new System.Drawing.Size(121, 24);
-            this.fromKey.TabIndex = 3;
+            this.fromlbl.AutoSize = true;
+            this.fromlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromlbl.Location = new System.Drawing.Point(364, 155);
+            this.fromlbl.Name = "fromlbl";
+            this.fromlbl.Size = new System.Drawing.Size(57, 25);
+            this.fromlbl.TabIndex = 5;
+            this.fromlbl.Text = "From";
             // 
             // toKey
             // 
@@ -426,25 +364,165 @@
             this.toKey.Size = new System.Drawing.Size(121, 24);
             this.toKey.TabIndex = 4;
             // 
-            // fromlbl
+            // fromKey
             // 
-            this.fromlbl.AutoSize = true;
-            this.fromlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fromlbl.Location = new System.Drawing.Point(364, 155);
-            this.fromlbl.Name = "fromlbl";
-            this.fromlbl.Size = new System.Drawing.Size(57, 25);
-            this.fromlbl.TabIndex = 5;
-            this.fromlbl.Text = "From";
+            this.fromKey.FormattingEnabled = true;
+            this.fromKey.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "W",
+            "X",
+            "Y",
+            "Z"});
+            this.fromKey.Location = new System.Drawing.Point(338, 183);
+            this.fromKey.Name = "fromKey";
+            this.fromKey.Size = new System.Drawing.Size(121, 24);
+            this.fromKey.TabIndex = 3;
             // 
-            // tolbl
+            // keyboardKeyMapper
             // 
-            this.tolbl.AutoSize = true;
-            this.tolbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tolbl.Location = new System.Drawing.Point(496, 155);
-            this.tolbl.Name = "tolbl";
-            this.tolbl.Size = new System.Drawing.Size(36, 25);
-            this.tolbl.TabIndex = 6;
-            this.tolbl.Text = "To";
+            this.keyboardKeyMapper.AutoSize = true;
+            this.keyboardKeyMapper.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.keyboardKeyMapper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.keyboardKeyMapper.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.keyboardKeyMapper.Location = new System.Drawing.Point(353, 109);
+            this.keyboardKeyMapper.Name = "keyboardKeyMapper";
+            this.keyboardKeyMapper.Size = new System.Drawing.Size(233, 26);
+            this.keyboardKeyMapper.TabIndex = 2;
+            this.keyboardKeyMapper.Text = "Key Board Key Mapper";
+            this.keyboardKeyMapper.UseVisualStyleBackColor = true;
+            this.keyboardKeyMapper.CheckedChanged += new System.EventHandler(this.keyboardKeyMapper_CheckedChanged);
+            // 
+            // colorpickerCheckBox
+            // 
+            this.colorpickerCheckBox.AutoSize = true;
+            this.colorpickerCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.colorpickerCheckBox.Checked = true;
+            this.colorpickerCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.colorpickerCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colorpickerCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colorpickerCheckBox.Location = new System.Drawing.Point(91, 109);
+            this.colorpickerCheckBox.Name = "colorpickerCheckBox";
+            this.colorpickerCheckBox.Size = new System.Drawing.Size(138, 26);
+            this.colorpickerCheckBox.TabIndex = 1;
+            this.colorpickerCheckBox.Text = "Color Picker";
+            this.colorpickerCheckBox.UseVisualStyleBackColor = true;
+            this.colorpickerCheckBox.CheckedChanged += new System.EventHandler(this.colorpickerCheckBox_CheckedChanged);
+            // 
+            // homelbl
+            // 
+            this.homelbl.AutoSize = true;
+            this.homelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homelbl.Location = new System.Drawing.Point(251, 3);
+            this.homelbl.Name = "homelbl";
+            this.homelbl.Size = new System.Drawing.Size(93, 32);
+            this.homelbl.TabIndex = 0;
+            this.homelbl.Text = "Home";
+            // 
+            // settingsPanelView
+            // 
+            this.settingsPanelView.Controls.Add(this.darkModeCheckbox);
+            this.settingsPanelView.Controls.Add(this.settingslbl);
+            this.settingsPanelView.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.settingsPanelView.Location = new System.Drawing.Point(176, 0);
+            this.settingsPanelView.Name = "settingsPanelView";
+            this.settingsPanelView.Size = new System.Drawing.Size(624, 450);
+            this.settingsPanelView.TabIndex = 7;
+            // 
+            // settingslbl
+            // 
+            this.settingslbl.AutoSize = true;
+            this.settingslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingslbl.Location = new System.Drawing.Point(248, 24);
+            this.settingslbl.Name = "settingslbl";
+            this.settingslbl.Size = new System.Drawing.Size(126, 32);
+            this.settingslbl.TabIndex = 0;
+            this.settingslbl.Text = "Settings";
+            // 
+            // darkModeCheckbox
+            // 
+            this.darkModeCheckbox.AutoSize = true;
+            this.darkModeCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.darkModeCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.darkModeCheckbox.Location = new System.Drawing.Point(96, 141);
+            this.darkModeCheckbox.Name = "darkModeCheckbox";
+            this.darkModeCheckbox.Size = new System.Drawing.Size(130, 29);
+            this.darkModeCheckbox.TabIndex = 1;
+            this.darkModeCheckbox.Text = "Dark Mode";
+            this.darkModeCheckbox.UseVisualStyleBackColor = true;
+            this.darkModeCheckbox.CheckedChanged += new System.EventHandler(this.darkModeCheckbox_CheckedChanged);
+            // 
+            // aboutPanelView
+            // 
+            this.aboutPanelView.Controls.Add(this.linkLabel1);
+            this.aboutPanelView.Controls.Add(this.message);
+            this.aboutPanelView.Controls.Add(this.aboutlbl);
+            this.aboutPanelView.Location = new System.Drawing.Point(176, 0);
+            this.aboutPanelView.Name = "aboutPanelView";
+            this.aboutPanelView.Size = new System.Drawing.Size(624, 450);
+            this.aboutPanelView.TabIndex = 2;
+            // 
+            // aboutlbl
+            // 
+            this.aboutlbl.AutoSize = true;
+            this.aboutlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutlbl.Location = new System.Drawing.Point(251, 30);
+            this.aboutlbl.Name = "aboutlbl";
+            this.aboutlbl.Size = new System.Drawing.Size(94, 32);
+            this.aboutlbl.TabIndex = 0;
+            this.aboutlbl.Text = "About";
+            // 
+            // message
+            // 
+            this.message.Font = new System.Drawing.Font("Arial Black", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.message.ForeColor = System.Drawing.Color.Black;
+            this.message.Location = new System.Drawing.Point(24, 75);
+            this.message.Name = "message";
+            this.message.Size = new System.Drawing.Size(573, 165);
+            this.message.TabIndex = 1;
+            this.message.Text = resources.GetString("message.Text");
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkLabel1.Location = new System.Drawing.Point(237, 225);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(110, 25);
+            this.linkLabel1.TabIndex = 2;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Github Link";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(23, 144);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(242, 22);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Shortcut Key Ctrl+Shift+C";
             // 
             // Home
             // 
@@ -452,6 +530,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.homePanelView);
+            this.Controls.Add(this.aboutPanelView);
+            this.Controls.Add(this.settingsPanelView);
             this.Controls.Add(this.browserPanelView);
             this.Controls.Add(this.sidebarContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -465,13 +545,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).EndInit();
             this.homePanel.ResumeLayout(false);
             this.aboutPanel.ResumeLayout(false);
-            this.helpPanel.ResumeLayout(false);
             this.settingPanel.ResumeLayout(false);
             this.browserPanel.ResumeLayout(false);
             this.browserPanelView.ResumeLayout(false);
             this.browserPanelView.PerformLayout();
             this.homePanelView.ResumeLayout(false);
             this.homePanelView.PerformLayout();
+            this.settingsPanelView.ResumeLayout(false);
+            this.settingsPanelView.PerformLayout();
+            this.aboutPanelView.ResumeLayout(false);
+            this.aboutPanelView.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -486,8 +569,6 @@
         private System.Windows.Forms.Button homebtn;
         private System.Windows.Forms.Panel aboutPanel;
         private System.Windows.Forms.Button aboutbtn;
-        private System.Windows.Forms.Panel helpPanel;
-        private System.Windows.Forms.Button helpbtn;
         private System.Windows.Forms.Panel settingPanel;
         private System.Windows.Forms.Button settingbtn;
         private System.Windows.Forms.Timer sidebarTimer;
@@ -508,5 +589,13 @@
         private System.Windows.Forms.ComboBox toKey;
         private System.Windows.Forms.ComboBox fromKey;
         private System.Windows.Forms.Label tolbl;
+        private System.Windows.Forms.Panel settingsPanelView;
+        private System.Windows.Forms.Label settingslbl;
+        private System.Windows.Forms.CheckBox darkModeCheckbox;
+        private System.Windows.Forms.Panel aboutPanelView;
+        private System.Windows.Forms.Label message;
+        private System.Windows.Forms.Label aboutlbl;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label1;
     }
 }
